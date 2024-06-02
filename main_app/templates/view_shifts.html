@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shifts List</title>
+    <style>
+        /* CSS styles */
+
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #674a4a;
+            color: #eee9e9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            border: 1px solid #987474;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #6e4b4b;
+            color: #e1dcdc;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #a47f7f;
+        }
+
+        tr:hover {
+            background-color: #614848;
+        }
+
+        tbody tr:hover {
+            background-color: #745454;
+        }
+
+        /* Added styles for links */
+        a {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #ff6347;
+        }
+
+        /* Styles for tick and cross symbols */
+        .tick {
+            color: #27ae60;
+        }
+
+        .cross {
+            color: #e74c3c;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .navbar a:hover {
+            color: #ffd700;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            color: #ffd700;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Beds List -->
+    <h1>List of Shifts</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nurse</th>
+                <th>Start_time</th>
+                <th>End_time</th>
+                <th>Department</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+                {% for shift in shifts %}
+                <tr>
+                    <td>{{ shift.nurse}}</td>
+                    <td>{{ shift.start_time }}</td>
+                    <td>{{ shift.end_time}}</td>
+                    <td>{{ shift.department}}</td>
+                    
+                </tr>
+                {% endfor %}
+       
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .department {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .department h2 {
+            color: #555;
+        }
+
+        .department p {
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Departments List</h1>
+        {% if departments %}
+            {% for department in departments %}
+                <div class="department">
+                    <h2>{{ department.name }}</h2>
+                    <p><strong>Head of Department:</strong> 
+                        {% if department.head_of_department %}
+                            {{ department.head_of_department.name }} ({{ department.head_of_department.specialization }})
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </p>
+                    <p><strong>Description:</strong> {{ department.description }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No departments found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

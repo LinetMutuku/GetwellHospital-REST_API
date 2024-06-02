@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients Billing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #bab6b6;
+        }
+
+        .navbar {
+            background-color: #343a40;
+            padding: 1px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-weight: bold;
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .navbar-brand img {
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        .navbar-nav .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 80px auto 20px auto; /* Adjust margin to accommodate navbar */
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .card p {
+            margin: 10px 0;
+        }
+
+        .amount {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .ksh-symbol {
+            color: #4CAF50;
+        }
+
+        .date-time {
+            color: #777;
+        }
+
+        .payment-method {
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://media.istockphoto.com/id/1312706504/photo/modern-hospital-building.jpg?s=1024x1024&w=is&k=20&c=j7XqHjwQKT9-xeByphN1IT57WcR1ltFr9olUqZ0s9pY="
+                    alt="Hospital Icon" width="30" height="30" class="d-inline-block align-top">
+                GETWELL HOSPITAL
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+    <div class="container">
+        {% if billings %}
+            {% for billing in billings %}
+            <div class="card">
+                <h2>{{ billing.patient_name }}</h2> <!-- Corrected this line -->
+                <p>Amount: <span class="amount"><span class="ksh-symbol">kshs</span> {{ billing.amount }}</span></p>
+                <p>Date & Time: <span class="date-time">{{ billing.date_time }}</span></p>
+                <p>Payment Method: <span class="payment-method">{{ billing.payment_method }}</span></p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No billing records found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

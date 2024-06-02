@@ -1,0 +1,78 @@
+<!-- wards_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wards List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Wards List</h1>
+        <div class="wards-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Name</th>
+                        <th>Capacity</th>
+                        <th>Current_occupancy</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ward in wards %}
+                    <tr>
+                        <td>{{ ward.name }}</td>
+                        <td>{{ ward.capacity}}</td>
+                        <td>{{ ward.current_occupancy }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

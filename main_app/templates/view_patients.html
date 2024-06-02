@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patients List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #957676;
+        }
+
+        h1 {
+            text-align: center;
+            color: #060606;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(9, 9, 9, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #523b3b;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #634444;
+            color: #efe8e8;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #644e4e;
+        }
+
+        tr:hover {
+            background-color: #5a4343;
+        }
+
+        tbody td {
+            font-size: 14px;
+            color: #ece6e6;
+        }
+
+        tbody tr:hover {
+            background-color: #836262;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #333; /* Navbar background color */
+            padding: 10px 0; /* Padding for the navbar */
+        }
+
+        .navbar a {
+            color: #fff; /* Navbar link color */
+            text-decoration: none; /* Remove underline from navbar links */
+            margin-right: 20px; /* Margin between navbar links */
+        }
+
+        .navbar a:hover {
+            color: #ffd700; /* Navbar link color on hover */
+        }
+
+        .navbar-brand {
+            font-size: 24px; /* Navbar brand font size */
+            color: #ffd700; /* Navbar brand color */
+            margin-left: 20px; /* Margin for the navbar brand */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-links">
+            <a href="{% url 'view_billings'  %}">View the Billings</a>
+            <a href="{%  url 'view_beds'  %}">View the Beds</a>
+            <a href="{%  url 'view_medications'%}">View the Medications</a>
+            <a href="#">Disabled</a>
+        </div>
+    </nav>
+    <h1>List of Patients</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Contact Number</th>
+                <th>Address</th>
+                <th>Medical History</th>
+                <th>Insurance Details</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+                <tr>
+                    <td><a href="{% url 'patient_details' patient_id=patient.id %}">{{ patient.name }}</a></td>
+                    <td>{{ patient.email }}</td>
+                    <td>{{ patient.age }}</td>
+                    <td>{{ patient.gender }}</td>
+                    <td>{{ patient.contact_number }}</td>
+                    <td>{{ patient.address }}</td>
+                    <td>{{ patient.medical_history }}</td>
+                    <td>{{ patient.insurance_details }}</td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Beds List</title>
+    <style>
+        /* CSS styles */
+
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #674a4a;
+            color: #eee9e9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            border: 1px solid #987474;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #6e4b4b;
+            color: #e1dcdc;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #a47f7f;
+        }
+
+        tr:hover {
+            background-color: #614848;
+        }
+
+        tbody tr:hover {
+            background-color: #745454;
+        }
+
+        /* Added styles for links */
+        a {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #ff6347;
+        }
+
+        /* Styles for tick and cross symbols */
+        .tick {
+            color: #27ae60;
+        }
+
+        .cross {
+            color: #e74c3c;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .navbar a:hover {
+            color: #ffd700;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            color: #ffd700;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Beds List -->
+    <h1>List of Beds</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Department</th>
+                <th>Patient</th>
+                <th>Number</th>
+                <th>Is Occupied</th>
+                <th>Bed Type</th>
+                <th>Ward</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for bed in beds %}
+                <tr>
+                    <td>{{ bed.department_id}}</td>
+                    <td>{{ bed.patient_id }}</td>
+                    <td>{{ bed.number }}</td>
+                    <td>{% if bed.is_occupied %}<span class="tick">✔</span>{% else %}<span class="cross">✘</span>{% endif %}</td>
+                    <td>{{ bed.bed_type }}</td>
+                    <td>{{ bed.ward_id}}</td>
+                </tr>
+                {% endfor %}
+       
+        </tbody>
+    </table>
+</body>
+
+</html>

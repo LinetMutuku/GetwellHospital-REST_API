@@ -1,0 +1,42 @@
+{% load crispy_forms_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .asteriskField {
+          display: none;
+      }
+      
+      body, html {
+          height: 100%;
+          color:rgb(6, 6, 6)
+      }
+      .container-fluid {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+    </style>
+</head>
+<body>
+    <div class="container-fluid" style=" height:700px; background-image: url(https://media.istockphoto.com/id/1373086098/photo/insurance-company-client-take-out-complete-insurance-concept-assurance-and-insurance-car-real.jpg?s=1024x1024&w=is&k=20&c=0UN1dnnJrnTxVEXJlyjEYetcOWRAmNVSpQmoX62b-IA=);">    
+        <div class="row content align-items-center justify-content-center">
+            <div class="col-md-4">
+                <img src="https://media.istockphoto.com/id/1555515663/photo/happy-portrait-group-and-doctors-for-healthcare-service-leadership-and-teamwork-in-hospital.jpg?s=2048x2048&w=is&k=20&c=Rj3_3msYEYDnm8Geh-yrszjKsEVmwJVS-_gpszMJVdE=" class="img-fluid" alt="Image">
+            </div>
+            <div class="col-md-4 ">
+                <form action="{% url 'home'%}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-dark rounded-0 w-100 bg-info text-dark ">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
