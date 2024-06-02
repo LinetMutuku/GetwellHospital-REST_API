@@ -1,0 +1,1 @@
+GetWellHospital is a comprehensive hospital management system. It provides a REST API with multiple hospital-related models and relationships. Additionally, it features a front-end view to display every detail of the hospital's operations. Users can perform CRUD (Create, Read, Update, Delete) operations on various models using Postman or other API testing tools.
